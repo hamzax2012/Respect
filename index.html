@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Respect Town - S2</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
@@ -17,54 +17,61 @@
 
         body {
             margin: 0;
-            padding: 0;
             font-family: 'Cairo', sans-serif;
-            background: radial-gradient(circle at top, #1a1a1a 0%, #000 100%);
+            background-color: var(--dark-bg);
             color: white;
-            min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* حاوية المحتوى */
         .container {
             width: 90%;
-            max-width: 500px;
+            max-width: 450px;
             text-align: center;
             padding: 40px 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
-        /* الشعار */
-        .logo-area img {
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .logo {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             border: 3px solid var(--gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-            margin-bottom: 20px;
+            padding: 5px;
+            box-shadow: 0 0 20px var(--gold);
+            object-fit: cover;
         }
 
         h1 {
-            font-size: 2rem;
-            margin: 10px 0;
-            color: var(--gold);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            color: var(--light-gold);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .description {
             font-size: 0.95rem;
-            line-height: 1.8;
             color: #ccc;
-            background: var(--glass-bg);
-            padding: 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            line-height: 1.6;
             margin-bottom: 30px;
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 15px;
         }
 
-        /* الأزرار */
         .btn-list {
             display: flex;
             flex-direction: column;
@@ -75,94 +82,77 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 15px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
-            border: 1px solid var(--gold);
+            gap: 12px;
+            padding: 16px;
             border-radius: 50px;
-            transition: 0.3s;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
             cursor: pointer;
-        }
-
-        .btn:hover {
-            background: var(--gold);
-            color: black;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            border: 1px solid transparent;
         }
 
         .btn-discord {
-            background: #5865F2; /* لون ديسكورد الرسمي */
-            border: none;
-        }
-
-        .btn-discord:hover {
-            background: #4752c4;
+            background: #5865F2;
             color: white;
         }
 
-        .footer {
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: #666;
+        .btn-discord:hover { background: #4752c4; transform: scale(1.03); }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
         }
 
-        /* قائمة منبثقة بسيطة للقوانين أو المؤسسين */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #1a1a1a;
-            border: 2px solid var(--gold);
-            padding: 20px;
-            border-radius: 20px;
-            z-index: 1000;
-            width: 80%;
-            max-width: 400px;
+        .btn-outline:hover {
+            background: var(--gold);
+            color: black;
+            transform: scale(1.03);
         }
+
+        .btn-solid {
+            background: var(--gold);
+            color: black;
+        }
+
+        .btn-solid:hover { background: var(--light-gold); transform: scale(1.03); }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="logo-area">
-            <img src="https://i.ibb.co/VmqpZpM/image.png" alt="Logo">
-        </div>
-
-        <h1>𝐑espect - Town - 𝐒2 | 🇸🇦</h1>
-
-        <div class="description">
-            🏙️ <strong>Respect Town - S2</strong><br>
-            حيث يلتقي الرقيّ بالأخلاق. مجتمع رقمي متميز يجمع بين التنظيم العالي والأجواء الأخوية. نهدف لتقديم تجربة اجتماعية فريدة قائمة على الاحترام المتبادل.
-        </div>
-
-        <div class="btn-list">
-            <a href="https://discord.gg/https://discord.gg/vFZRqXsSQ" class="btn btn-discord">
-                <i class="fab fa-discord"></i> سيرفر الديسكورد
-            </a>
-            
-            <a href="#" class="btn" onclick="alert('سيتم إضافة القوانين قريباً')">
-                <i class="fas fa-gavel"></i> القوانين
-            </a>
-
-            <a href="#" class="btn" onclick="alert('المؤسسين: طاقم إدارة ريسبيكت تاون')">
-                <i class="fas fa-users-crown"></i> المؤسسين
-            </a>
-
-            <a href="#" class="btn">
-                <i class="fas fa-star"></i> المميزات
-            </a>
-        </div>
-
-        <div class="footer">
-            &copy; 2026 Respect Town S2. All Rights Reserved.
-        </div>
+<div class="container">
+    <div class="logo-container">
+        <img src="https://i.ibb.co/VmqpZpM/image.png" alt="Respect Town Logo" class="logo">
     </div>
+
+    <h1>Respect - Town - S2 | 🇸🇦</h1>
+
+    <div class="description">
+        <strong>✨ مميزات ريسبكت تاون:</strong><br>
+        • تجربة حياة واقعية متكاملة 🎭<br>
+        • نظام عصابات ووظائف متطور 💼<br>
+        • إدارة محترفة متواجدة 24/7 🛠️
+    </div>
+
+    <div class="btn-list">
+        <a href="https://discord.gg/mEvSf2qZE" target="_blank" class="btn btn-discord">
+            <i class="fab fa-discord"></i> سيرفر الديسكورد
+        </a>
+
+        <a class="btn btn-outline" onclick="alert('قوانين Respect Town:\n1. الاحترام المتبادل بين الجميع.\n2. يمنع السب والقذف نهائياً.\n3. الالتزام بقوانين الرول بلاي والواقعية.')">
+            <i class="fas fa-gavel"></i> القوانين
+        </a>
+
+        <a class="btn btn-outline" onclick="alert('مؤسسي السيرفر:\n• أبو سويحل\n• خيال\n• يوسف\n• بندر\n• طلال')">
+            <i class="fas fa-crown"></i> المؤسسين
+        </a>
+
+        <a class="btn btn-solid" onclick="alert('المميزات:\n• فعاليات يومية\n• نظام حماية عالي\n• اقتصاد متوازن')">
+            <i class="fas fa-star"></i> المميزات
+        </a>
+    </div>
+</div>
 
 </body>
 </html>
